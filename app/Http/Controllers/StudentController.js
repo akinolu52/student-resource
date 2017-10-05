@@ -6,11 +6,6 @@ const Validator = use('Validator')
 
 class StudentController {
 
-    // Creating Students’ resource
-    // Listing Students’ resource
-    // Showing Students’ resource
-    // editing and deleting students on backend.
-
     *
     index(request, response) {
         const students = yield Student.all()
@@ -27,7 +22,6 @@ class StudentController {
 
     *
     store(request, response) {
-        // const user = request.currentUser
 
         const validation = yield Validator.validateAll(request.all(), {
             matric_no: 'required',
@@ -84,8 +78,6 @@ class StudentController {
 
     *
     update(request, response) {
-        // const user = request.currentUser
-
         const validation = yield Validator.validateAll(request.all(), {
             matric_no: 'required',
             firstname: 'required',
@@ -111,7 +103,6 @@ class StudentController {
 
         const student = yield Student.find(request.param('id'))
 
-        // student.matric_no = request.input('matric_no')
         student.firstname = request.input('firstname')
         student.lastname = request.input('lastname')
         student.number_of_course = request.input('number_of_course')

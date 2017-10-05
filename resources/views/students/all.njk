@@ -36,10 +36,6 @@
                                  <i class="fa fa-eye"></i>
                             </a>
                             &nbsp;&nbsp;&nbsp;
-                            <a href="/student/{{ student.id }}/edit/" title="edit {{ student.firstname+' '+student.lastname }}" class="white">
-                                 <i class="fa fa-edit"></i>
-                            </a>
-                            &nbsp;&nbsp;&nbsp;
                             <form action="{{ '/student/' + student.id + '?_method=DELETE' }}" method="POST" class="inline">
                               {{ csrfField }}
                               <button type="submit" class="fa btn fa-times red" title="delete {{ student.firstname+' '+student.lastname }}"></button>

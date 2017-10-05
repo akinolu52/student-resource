@@ -4,11 +4,11 @@
 
 ****This provides an API endpoint for the following:****
 
-1. Creating Students’ resource
-1. Listing Students’ resource
-1. Showing Students’ resource
-1. Editing Students’ resource
-1. Deleting students on backend.
+* Creating Students’ resource
+* Listing Students’ resource
+* Showing Students’ resource
+* Editing Students’ resource
+* Deleting students on backend.
 
 Fork & star(&#x269D;)!
 

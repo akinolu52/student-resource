@@ -12,6 +12,11 @@
     width: 98.85% !important;
 }
 
+.land-list li {
+    margin: 20px;
+    font-size: 18px;
+}
+
 .inline {
     display: inline-block;
 }
