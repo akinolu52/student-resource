@@ -1,0 +1,60 @@
+{% extends 'master' %}
+
+{% block title %}
+  Showing {{ student.matric_no }}
+{% endblock %}
+
+{% block content %}
+  <div class="row">
+        <div class="col-md-10 col-md-offset-1 main-title width-98" >
+          <h2>
+            Showing {{ student.firstname+' '+student.lastname }} information -&nbsp;
+            <small>
+              <a href="/student/{{ student.id }}/edit" title="edit {{ student.firstname+' '+student.lastname }}" class="white">
+                <i class="fa fa-edit"></i>
+              </a>&nbsp;&nbsp;&nbsp;
+              <form action="{{ '/student/' + student.id + '?_method=DELETE' }}" method="POST" class="inline">
+                {{ csrfField }}
+                <button type="submit" class="fa btn fa-times red" title="delete {{ student.firstname+' '+student.lastname }}"></button>
+              </form>
+            </small>
+          </h2>
+          <div class="demo2 dsCountDown ds-black">
+            <div class="ds-element ds-element-days">
+              <div class="ds-element-title">firstname</div>
+              <div class="ds-element-value ds-days">{{ student.firstname }}</div>
+            </div>
+            <div class="ds-element ds-element-hours">
+              <div class="ds-element-title">lastname</div>
+              <div class="ds-element-value ds-hours">{{ student.lastname }}</div>
+            </div>
+            <div class="ds-element ds-element-minutes">
+              <div class="ds-element-title">level</div>
+              <div class="ds-element-value ds-minutes">{{ student.level }}</div>
+            </div>
+            <div class="ds-element ds-element-seconds">
+              <div class="ds-element-title">department</div>
+              <div class="ds-element-value ds-seconds">{{ student.department }}</div>
+              </div>
+            </div>
+            <div class="demo2 dsCountDown ds-black">
+              <div class="ds-element ds-element-days">
+                <div class="ds-element-title">no of course</div>
+                <div class="ds-element-value ds-days">{{ student.number_of_course }}</div>
+              </div>
+              <div class="ds-element ds-element-hours">
+                <div class="ds-element-title">faculty</div>
+                <div class="ds-element-value ds-hours">{{ student.faculty }}</div>
+              </div>
+              <div class="ds-element ds-element-minutes">
+                <div class="ds-element-title">next of kin</div>
+                <div class="ds-element-value ds-minutes">{{ student.next_of_kin }}</div>
+              </div>
+              <div class="ds-element ds-element-seconds">
+                <div class="ds-element-title">cgpa</div>
+                <div class="ds-element-value ds-seconds">{{ student.cgpa }}</div>
+              </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

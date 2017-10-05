@@ -1,0 +1,76 @@
+{% extends 'master' %}
+
+{% block title %}
+  Create student
+{% endblock %}
+
+{% block content %}
+ <div class="w3_agile_main_left">
+    <div class="col-md-4 col-md-offset-4 w3layouts-second">
+      <div class="w3l_main_grid1_w3ls_grid">
+        <h3>Create a new student</h3>
+        <div class="w3_agile_main_left_grid_w3_agileits">
+          {% include 'errors.form' %}
+          {% include 'errors.status' %}
+          <form action="/student" method="post">
+            {{ csrfField }}
+            <div class="agileits_w3layouts_user">
+              <input type="text" name="matric_no" placeholder="Matric Number" value="11111" required>
+            </div>
+            <div class="agileits_w3layouts_user">
+              <input type="text" name="firstname" placeholder="Firstname" value="cc" required>
+            </div>
+            <div class="agileits_w3layouts_user">
+              <input type="text" name="lastname" placeholder="Lastname" value="kk" required>
+            </div>
+            <div class="agileits_w3layouts_user">
+              <select name="number_of_course" class="form-control" required>
+                <option>--Number of course--</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+                <option value="10">10</option>
+              </select>
+            </div>
+            <div class="agileits_w3layouts_user">
+              <select name="level" class="form-control" required>
+                <option value="100">100 level</option>
+                <option value="200">200 level</option>
+                <option value="300">300 level</option>
+                <option value="400">400 level</option>
+                <option value="500">500 level</option>
+              </select>
+            </div>
+						<div class="agileits_w3layouts_user">
+							<input type="text" name="department" placeholder="Department" value="lns kjbk" required>
+						</div>
+						<div class="agileits_w3layouts_user">
+							<input type="text" name="faculty" placeholder="Faculty"  value="l  bln" required>
+						</div>
+						<div class="agileits_w3layouts_user">
+							<input type="text" name="next_of_kin" placeholder="Next of Kin Fullname" value="lnbkn nl" required>
+						</div>
+						<div class="agileits_w3layouts_user">
+							<input type="number" name="cgpa" placeholder="CGPA" required step="any">
+						</div>
+            <br>
+            <div class="check">
+              <label class="checkbox">
+                <input type="checkbox" name="checkbox" checked=""><i> </i>
+                i agree to the <span>terms of services</span>
+              </label>
+            </div>
+            <input type="submit" value="Sign Up">
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="clearfix"></div>
+{% endblock %}

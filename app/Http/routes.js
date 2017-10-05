@@ -18,3 +18,15 @@
 const Route = use('Route')
 
 Route.on('/').render('welcome')
+    // Route.get('/', 'StudentController.index')
+
+Route.get('register', 'AuthController.showRegister')
+Route.post('register', 'AuthController.register')
+
+Route.get('login', 'AuthController.showLogin')
+Route.post('login', 'AuthController.login')
+Route.get('logout', 'AuthController.logout')
+
+Route.group('admin', function() {
+    Route.resource('/student', 'StudentController')
+}).middleware('admin')

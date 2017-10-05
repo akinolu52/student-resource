@@ -1,0 +1,55 @@
+
+{% extends 'master' %}
+
+{% block title %}
+  All students
+{% endblock %}
+
+{% block content %}
+  <div class="row">
+        <div class="col-md-10 col-md-offset-1">
+            {% include 'errors.status' %}
+            {% if students.length == 0 %}
+              <p>You have not created any students.</p>
+            {% else %}
+              <table class="table">
+                  <thead>
+                      <tr>
+                          <th>Matric No.</th>
+                          <th>Full name</th>
+                          <th>Level</th>
+                          <th>Department</th>
+                          <th>Last Updated</th>
+                          <th>Action</th>
+                      </tr>
+                  </thead>
+                  <tbody>
+                      {% for student in students %}
+                      <tr>
+                          <td>{{ student.matric_no }}</td>
+                          <td>{{ student.firstname+' '+student.lastname }}</td>
+                          <td>{{ student.level }}</td>
+                          <td>{{ student.department }}</td>
+                          <td>{{ student.updated_at }}</td>
+                          <td>
+                            <a href="/student/{{ student.id }}" title="view {{ student.firstname+' '+student.lastname }}" class="green">
+                                 <i class="fa fa-eye"></i>
+                            </a>
+                            &nbsp;&nbsp;&nbsp;
+                            <a href="/student/{{ student.id }}/edit/" title="edit {{ student.firstname+' '+student.lastname }}" class="white">
+                                 <i class="fa fa-edit"></i>
+                            </a>
+                            &nbsp;&nbsp;&nbsp;
+                            <form action="{{ '/student/' + student.id + '?_method=DELETE' }}" method="POST" class="inline">
+                              {{ csrfField }}
+                              <button type="submit" class="fa btn fa-times red" title="delete {{ student.firstname+' '+student.lastname }}"></button>
+                            </form>
+                          </td>
+                      </tr>
+                      {% endfor %}
+                  </tbody>
+              </table>
+            {% endif %}
+        </div>
+    </div>
+{% endblock %}

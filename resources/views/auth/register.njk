@@ -1,0 +1,45 @@
+{% extends 'master' %}
+
+{% block title %}
+  Register
+{% endblock %}
+
+{% block content %}
+  <div class="w3_agile_main_left">
+    <div class="col-md-4 col-md-offset-4 w3layouts-second">
+      <div class="w3l_main_grid1_w3ls_grid">
+        <h3>Sign Up</h3>
+        <div class="w3_agile_main_left_grid_w3_agileits">
+          {% include 'errors.form' %}
+          <form action="/register" method="post">
+            {{ csrfField }}
+            <div class="agileits_w3layouts_user">
+              <i class="fa fa-user" aria-hidden="true"></i>
+              <input type="text" name="username" placeholder="Username" value="{{ old('username', '') }}" required>
+            </div>
+            <div class="agileits_w3layouts_user">
+              <i class="fa fa-envelope-o" aria-hidden="true"></i>
+              <input type="email" name="email" placeholder="Email" value="{{ old('email', '') }}" required>
+            </div>
+            <div class="agileits_w3layouts_user">
+              <i class="fa fa-key" aria-hidden="true"></i>
+              <input type="password" name="password" placeholder="Password" required>
+            </div>
+						<div class="agileits_w3layouts_user">
+							<i class="fa fa-key" aria-hidden="true"></i>
+							<input type="password" name="password_confirmation" placeholder="Confirm Password" required>
+						</div>
+            <div class="check">
+              <label class="checkbox">
+                <input type="checkbox" name="checkbox" checked=""><i> </i>
+                i agree to the <span>terms of services</span>
+              </label>
+            </div>
+            <input type="submit" value="Sign Up">
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="clearfix"></div>
+{% endblock %}
