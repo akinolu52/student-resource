@@ -10,5 +10,3 @@
 *Showing Students’ resource
 *Editing Students’ resource
 *Deleting students on backend.
-
-
